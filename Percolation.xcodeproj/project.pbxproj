@@ -14,6 +14,9 @@
 		D01A5E65240EB4EF001FBCDF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D01A5E64240EB4EF001FBCDF /* Preview Assets.xcassets */; };
 		D01A5E68240EB4EF001FBCDF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D01A5E66240EB4EF001FBCDF /* LaunchScreen.storyboard */; };
 		D01A5E73240EB4EF001FBCDF /* PercolationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01A5E72240EB4EF001FBCDF /* PercolationTests.swift */; };
+		D01A5E7F240FF8FB001FBCDF /* WeightedQuickUnionUF.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01A5E7E240FF8FB001FBCDF /* WeightedQuickUnionUF.swift */; };
+		D01A5E822413BDCD001FBCDF /* WeightedQuickUnionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01A5E812413BDCD001FBCDF /* WeightedQuickUnionTest.swift */; };
+		D01A5E87241D64A0001FBCDF /* Percolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01A5E86241D64A0001FBCDF /* Percolation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +41,9 @@
 		D01A5E6E240EB4EF001FBCDF /* PercolationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PercolationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D01A5E72240EB4EF001FBCDF /* PercolationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercolationTests.swift; sourceTree = "<group>"; };
 		D01A5E74240EB4EF001FBCDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D01A5E7E240FF8FB001FBCDF /* WeightedQuickUnionUF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightedQuickUnionUF.swift; sourceTree = "<group>"; };
+		D01A5E812413BDCD001FBCDF /* WeightedQuickUnionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightedQuickUnionTest.swift; sourceTree = "<group>"; };
+		D01A5E86241D64A0001FBCDF /* Percolation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Percolation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +85,7 @@
 		D01A5E5A240EB4EB001FBCDF /* Percolation */ = {
 			isa = PBXGroup;
 			children = (
+				D01A5E7D240FF8E5001FBCDF /* Core */,
 				D01A5E5B240EB4EB001FBCDF /* AppDelegate.swift */,
 				D01A5E5D240EB4EB001FBCDF /* SceneDelegate.swift */,
 				D01A5E5F240EB4EB001FBCDF /* ContentView.swift */,
@@ -102,9 +109,19 @@
 			isa = PBXGroup;
 			children = (
 				D01A5E72240EB4EF001FBCDF /* PercolationTests.swift */,
+				D01A5E812413BDCD001FBCDF /* WeightedQuickUnionTest.swift */,
 				D01A5E74240EB4EF001FBCDF /* Info.plist */,
 			);
 			path = PercolationTests;
+			sourceTree = "<group>";
+		};
+		D01A5E7D240FF8E5001FBCDF /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				D01A5E7E240FF8FB001FBCDF /* WeightedQuickUnionUF.swift */,
+				D01A5E86241D64A0001FBCDF /* Percolation.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -117,6 +134,7 @@
 				D01A5E54240EB4EB001FBCDF /* Sources */,
 				D01A5E55240EB4EB001FBCDF /* Frameworks */,
 				D01A5E56240EB4EB001FBCDF /* Resources */,
+				D01A5E802411B554001FBCDF /* Run SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -203,13 +221,36 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		D01A5E802411B554001FBCDF /* Run SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D01A5E54240EB4EB001FBCDF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D01A5E5C240EB4EB001FBCDF /* AppDelegate.swift in Sources */,
+				D01A5E7F240FF8FB001FBCDF /* WeightedQuickUnionUF.swift in Sources */,
 				D01A5E5E240EB4EB001FBCDF /* SceneDelegate.swift in Sources */,
+				D01A5E87241D64A0001FBCDF /* Percolation.swift in Sources */,
 				D01A5E60240EB4EB001FBCDF /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -218,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D01A5E822413BDCD001FBCDF /* WeightedQuickUnionTest.swift in Sources */,
 				D01A5E73240EB4EF001FBCDF /* PercolationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
