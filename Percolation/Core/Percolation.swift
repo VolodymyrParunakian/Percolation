@@ -17,7 +17,7 @@ final internal class Percolation {
     private struct SiteStatus: OptionSet {
         let rawValue: UInt8
 
-        static let blocked = SiteStatus(rawValue: 0x0000)
+        static let blocked = SiteStatus([])
         static let open = SiteStatus(rawValue: 1 << 0)
         static let connectedToTop = SiteStatus(rawValue: 1 << 1)
         static let connectedToBottom = SiteStatus(rawValue: 1 << 2)
@@ -73,28 +73,38 @@ final internal class Percolation {
         openCounter += 1
         var combinedStatus: SiteStatus = .open
         let currentIndex = index(for: row, col: col)
+
+        func checkNeighboor(neighboorIndex: Int, currentIndex: Int) {
+            let rootIndex = unionUF.find(neighboorIndex)
+            let status = statuses[rootIndex]
+            if status.isOpen {
+                combinedStatus.insert(status)
+                unionUF.union(p: neighboorIndex, q: currentIndex)
+            }
+        }
+
         // If first row, the site will be full immediately
         if row == 1 {
             combinedStatus.insert(.connectedToTop)
         } else {
             let neighboorIndex = index(for: row - 1, col: col)
-            checkNeighboor(combinedStatus: &combinedStatus, neighboorIndex: neighboorIndex, currentIndex: currentIndex)
+            checkNeighboor(neighboorIndex: neighboorIndex, currentIndex: currentIndex)
         }
         // if last row, the site is open and connected to bottom
         if row == n {
             combinedStatus.insert(.connectedToBottom)
         } else {
             let neighboorIndex = index(for: row + 1, col: col)
-            checkNeighboor(combinedStatus: &combinedStatus, neighboorIndex: neighboorIndex, currentIndex: currentIndex)
+            checkNeighboor(neighboorIndex: neighboorIndex, currentIndex: currentIndex)
         }
         // check horizontally placed sites
         if col > 1 {
             let neighboorIndex = index(for: row, col: col - 1)
-            checkNeighboor(combinedStatus: &combinedStatus, neighboorIndex: neighboorIndex, currentIndex: currentIndex)
+            checkNeighboor(neighboorIndex: neighboorIndex, currentIndex: currentIndex)
         }
         if col < n {
             let neighboorIndex = index(for: row, col: col + 1)
-            checkNeighboor(combinedStatus: &combinedStatus, neighboorIndex: neighboorIndex, currentIndex: currentIndex)
+            checkNeighboor(neighboorIndex: neighboorIndex, currentIndex: currentIndex)
         }
 
         statuses[currentIndex] = combinedStatus
@@ -105,20 +115,10 @@ final internal class Percolation {
         }
     }
 
-    private func checkNeighboor(combinedStatus: inout SiteStatus, neighboorIndex: Int, currentIndex: Int) {
-        let rootIndex = unionUF.find(neighboorIndex)
-        let status = statuses[rootIndex]
-        if status.isOpen {
-            combinedStatus.insert(status)
-            unionUF.union(p: neighboorIndex, q: currentIndex)
-        }
-    }
-
     func open(row: Int, col: Int) {
         do {
             try validateIndices(row: row, col: col)
         } catch {
-            // TODO: Handle error
             print(error.localizedDescription)
         }
 
@@ -132,7 +132,6 @@ final internal class Percolation {
         do {
             try validateIndices(row: row, col: col)
         } catch {
-            // TODO: Handle error
             print(error.localizedDescription)
             return false
         }
@@ -144,7 +143,6 @@ final internal class Percolation {
         do {
             try validateIndices(row: row, col: col)
         } catch {
-            // TODO: Handle error
             print(error.localizedDescription)
             return false
         }

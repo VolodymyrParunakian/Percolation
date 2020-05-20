@@ -16,6 +16,10 @@ class PercolationTests: XCTestCase {
         XCTAssertNil(percolation)
     }
 
+    func testOpenInvalidIndex() {
+        //
+    }
+
     func testOpen() {
         let oPercolation = Percolation(with: 3)
         guard let percolation = oPercolation else {
@@ -27,6 +31,7 @@ class PercolationTests: XCTestCase {
         XCTAssertTrue(percolation.isOpen(row: 3, col: 3))
         XCTAssertTrue(percolation.isOpen(row: 1, col: 2))
         XCTAssertFalse(percolation.isOpen(row: 1, col: 1))
+        XCTAssertEqual(percolation.numberOfOpenSites(), 2)
     }
 
     func testFull() {
