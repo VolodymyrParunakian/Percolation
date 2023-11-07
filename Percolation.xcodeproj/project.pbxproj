@@ -16,7 +16,9 @@
 		D01A5E73240EB4EF001FBCDF /* PercolationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01A5E72240EB4EF001FBCDF /* PercolationTests.swift */; };
 		D01A5E7F240FF8FB001FBCDF /* WeightedQuickUnionUF.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01A5E7E240FF8FB001FBCDF /* WeightedQuickUnionUF.swift */; };
 		D01A5E822413BDCD001FBCDF /* WeightedQuickUnionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01A5E812413BDCD001FBCDF /* WeightedQuickUnionTest.swift */; };
-		D01A5E87241D64A0001FBCDF /* Percolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01A5E86241D64A0001FBCDF /* Percolation.swift */; };
+		D01A5E87241D64A0001FBCDF /* PercolationCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01A5E86241D64A0001FBCDF /* PercolationCore.swift */; };
+		D04266F024869A2200C91466 /* PercolationVisualizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04266EF24869A2200C91466 /* PercolationVisualizer.swift */; };
+		D04266F32486A0B800C91466 /* SquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04266F22486A0B800C91466 /* SquareView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +45,9 @@
 		D01A5E74240EB4EF001FBCDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D01A5E7E240FF8FB001FBCDF /* WeightedQuickUnionUF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightedQuickUnionUF.swift; sourceTree = "<group>"; };
 		D01A5E812413BDCD001FBCDF /* WeightedQuickUnionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightedQuickUnionTest.swift; sourceTree = "<group>"; };
-		D01A5E86241D64A0001FBCDF /* Percolation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Percolation.swift; sourceTree = "<group>"; };
+		D01A5E86241D64A0001FBCDF /* PercolationCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercolationCore.swift; sourceTree = "<group>"; };
+		D04266EF24869A2200C91466 /* PercolationVisualizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercolationVisualizer.swift; sourceTree = "<group>"; };
+		D04266F22486A0B800C91466 /* SquareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,10 +89,10 @@
 		D01A5E5A240EB4EB001FBCDF /* Percolation */ = {
 			isa = PBXGroup;
 			children = (
+				D04266F12486A0A400C91466 /* Views */,
 				D01A5E7D240FF8E5001FBCDF /* Core */,
 				D01A5E5B240EB4EB001FBCDF /* AppDelegate.swift */,
 				D01A5E5D240EB4EB001FBCDF /* SceneDelegate.swift */,
-				D01A5E5F240EB4EB001FBCDF /* ContentView.swift */,
 				D01A5E61240EB4EF001FBCDF /* Assets.xcassets */,
 				D01A5E66240EB4EF001FBCDF /* LaunchScreen.storyboard */,
 				D01A5E69240EB4EF001FBCDF /* Info.plist */,
@@ -119,9 +123,19 @@
 			isa = PBXGroup;
 			children = (
 				D01A5E7E240FF8FB001FBCDF /* WeightedQuickUnionUF.swift */,
-				D01A5E86241D64A0001FBCDF /* Percolation.swift */,
+				D01A5E86241D64A0001FBCDF /* PercolationCore.swift */,
+				D04266EF24869A2200C91466 /* PercolationVisualizer.swift */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		D04266F12486A0A400C91466 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D01A5E5F240EB4EB001FBCDF /* ContentView.swift */,
+				D04266F22486A0B800C91466 /* SquareView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,7 +264,9 @@
 				D01A5E5C240EB4EB001FBCDF /* AppDelegate.swift in Sources */,
 				D01A5E7F240FF8FB001FBCDF /* WeightedQuickUnionUF.swift in Sources */,
 				D01A5E5E240EB4EB001FBCDF /* SceneDelegate.swift in Sources */,
-				D01A5E87241D64A0001FBCDF /* Percolation.swift in Sources */,
+				D01A5E87241D64A0001FBCDF /* PercolationCore.swift in Sources */,
+				D04266F32486A0B800C91466 /* SquareView.swift in Sources */,
+				D04266F024869A2200C91466 /* PercolationVisualizer.swift in Sources */,
 				D01A5E60240EB4EB001FBCDF /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,7 +352,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -390,7 +406,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -409,6 +425,7 @@
 				DEVELOPMENT_TEAM = R26Z4H79BY;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Percolation/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -429,6 +446,7 @@
 				DEVELOPMENT_TEAM = R26Z4H79BY;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Percolation/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

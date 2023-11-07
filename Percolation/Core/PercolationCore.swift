@@ -13,7 +13,7 @@ internal enum PercolationError: Error {
     case illegalArgument(String)
 }
 
-final internal class Percolation {
+final internal class PercolationCore {
     private struct SiteStatus: OptionSet {
         let rawValue: UInt8
 
@@ -43,10 +43,9 @@ final internal class Percolation {
     // percolation flag
     private var percolatesFlag = false
 
-    init?(with n: Int) {
+    init(with n: Int) {
         if n <= 0 {
             print("\(n) must be larger than 0")
-            return nil
         }
 
         self.n = n

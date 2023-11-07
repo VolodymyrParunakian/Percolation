@@ -13,11 +13,11 @@
 //
 //  swiftlint:disable identifier_name
 
-enum WeightedQuickUnionUFError: Error {
+internal enum WeightedQuickUnionUFError: Error {
     case indexIsOutOfBounds(_ n: Int)
 }
 
-final class WeightedQuickUnionUF {
+final internal class WeightedQuickUnionUF {
     private var parent: [Int] // parent[index] = parent of index
     private var size: [Int]   // size[index] = number of elements in subtree rooted at index
     private var count: Int    // number of components
